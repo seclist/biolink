@@ -1,0 +1,219 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.caret {
+    animation: blink 1s infinite;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 180px auto 30px;
+    grid-template-areas: 
+        "image"
+        "text"
+        "stats";
+
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+    text-align: center;
+    position: relative; 
+}
+
+.card-image {
+    grid-area: image;
+    background: url("/png/back.gif");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    position: relative; 
+}
+
+.card-text {
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text .date {
+    color: grey;
+    font-size: 13px;
+}
+
+.card-text p {
+    color: grey;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card-text h2 {
+    margin-top: 0px;
+    font-size: 24px;
+}
+
+.card-banner {
+    grid-area: stats;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.card-banner .banner {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    transition: transform 0.5s;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.75rem rgb(5, 5, 5));
+}
+
+.card-banner .banner:hover {
+    transform: scale(1.15);
+}
+
+.card-logos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.card-logos .logo {
+    max-width: 40px;
+    max-height: 40px;
+    height: auto;
+    transition: transform 0.5s;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.75rem rgb(5, 5, 5));
+}
+
+.card-logos .logo:hover {
+    transform: scale(1.2);
+}
+
+.profile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 0.75rem rgb(5, 5, 5));
+}
+
+
+.sec-badge {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; 
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.sec-badge a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.sec-badge .made-by {
+    font-family: 'Courier New', Courier, monospace;
+    color: #aaa; 
+}
+
+.sec-badge .sec {
+    padding-left: 5px;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.6), 
+    2px 2px 4px rgba(0, 0, 0, 0.4), 
+    3px 3px 6px rgba(0, 0, 0, 0.2),
+    0.5px 0 0 rgba(255, 0, 0, 0.3),
+    -0.5px 0 0 rgba(0, 255, 0, 0.3),
+    0 0.5px 0 rgba(0, 0, 255, 0.3),
+    0 -0.5px 0 rgba(255, 255, 0, 0.3),
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6); 
+}
+
+.sec-badge:hover {
+    transform: scale(1.1);  
+}
+
+
+.overlay-content {
+    font-size: 20px;
+    color: whitesmoke;
+    text-shadow:1px 1px 10px #fff, 1px 1px 10px #000;
+    position: absolute;
+    list-style-type: circle;
+    margin-right: 1ch;
+    padding-left: 0px;
+    user-select: none;
+
+}
+.overlay {
+    position: fixed;
+    vertical-align: middle;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    cursor: auto;
+    z-index: 999;
+    backdrop-filter: blur(15px); 
+    transition: opacity 3s;
+}
+
+
+#overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#snow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
+
+
